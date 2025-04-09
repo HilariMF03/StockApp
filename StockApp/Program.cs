@@ -1,3 +1,6 @@
+using Database;
+using Microsoft.EntityFrameworkCore;
+
 namespace StockApp
 {
     public class Program
@@ -6,16 +9,19 @@ namespace StockApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Configuración del contexto con cadena de conexión
+            builder.Services.AddDbContext<ApplicationContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Agrega servicios al contenedor
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configura el pipeline HTTP
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
