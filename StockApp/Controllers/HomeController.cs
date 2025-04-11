@@ -1,19 +1,21 @@
+using Application.Services;
+using Database;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StockApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ProductService _productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationContext dbContext)
         {
-            _logger = logger;
+            _productService = new ProductService(dbContext);
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _productService.GetAllViewModel());
         }
 
     }
