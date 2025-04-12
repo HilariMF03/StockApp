@@ -25,9 +25,10 @@ namespace StockApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(SaveProductViewModel vm)
+        public async Task<IActionResult> Create(SaveProductViewModel vm)
         {
-            return View("SaveProduct", new SaveProductViewModel());
+            await _productService.Add(vm);
+            return RedirectToRoute(new { controller = "Product", action = "Index" });
         }
 
 
