@@ -13,9 +13,9 @@ namespace StockApp.Controllers
             _productService = new ProductService(dbContext);
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _productService.GetAllViewModel());
         }
     }
 }
