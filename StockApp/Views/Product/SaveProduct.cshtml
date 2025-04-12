@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-body">   
 
-                    <form method="post" asp-controller="Product" asp-action="Create">
+                    <form method="post" asp-controller="Product" asp-action="@(editMode ? "Edit":"Create")">
 
                         <div class="mb-3">
                             <label asp-for="Name" class="form-label">Nombre: </label>

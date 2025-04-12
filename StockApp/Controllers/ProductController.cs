@@ -24,10 +24,22 @@ namespace StockApp.Controllers
             return View("SaveProduct", new SaveProductViewModel());
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            return View("SaveProduct", await _productService.GetByIdSaveViewModel(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(SaveProductViewModel vm)
         {
             await _productService.Add(vm);
+            return RedirectToRoute(new { controller = "Product", action = "Index" });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(SaveProductViewModel vm)
+        {
+            await _productService.Update(vm);
             return RedirectToRoute(new { controller = "Product", action = "Index" });
         }
 

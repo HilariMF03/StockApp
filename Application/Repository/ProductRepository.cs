@@ -38,7 +38,7 @@ namespace Application.Repository
 
         public async Task<Product> GetByIdAsync(int id)
         {
-            return await _dbContext.Set<Product>().FindAsync();
+            return await _dbContext.Set<Product>().FindAsync(id);
         }
     }
 }
