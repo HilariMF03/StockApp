@@ -22,6 +22,7 @@ namespace Application.Services
             product.Price = vm.Price;
             product.Id = vm.Id;
             product.CategoryId = vm.CategoryId;
+            product.ImagUrl = vm.ImagUrl;
 
             await _productRepository.AddAsync(product);
 
