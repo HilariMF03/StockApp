@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Application.ViewModels;
 using Database;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,5 +18,19 @@ namespace StockApp.Controllers
         {
             return View(await _productService.GetAllViewModel());
         }
+
+        public IActionResult Create()
+        {
+            return View("SaveProduct", new SaveProductViewModel());
+        }
+
+        [HttpPost]
+        public IActionResult Create(SaveProductViewModel vm)
+        {
+            return View("SaveProduct", new SaveProductViewModel());
+        }
+
+
     }
 }
+
