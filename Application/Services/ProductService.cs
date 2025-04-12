@@ -35,7 +35,7 @@ namespace Application.Services
                 Name = product.Name,
                 Description = product.Description,
                 Id = product.Id,
-                ImgUrl = product.ImagUrl,
+                ImagUrl = product.ImagUrl,
                 Price = product.Price
 
             }).ToList();
