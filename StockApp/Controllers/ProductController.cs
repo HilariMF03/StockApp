@@ -32,6 +32,11 @@ namespace StockApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SaveProductViewModel vm)
         {
+            if (ModelState.IsValid)
+            {
+                return View("SaveProduct", vm);
+            }
+
             await _productService.Add(vm);
             return RedirectToRoute(new { controller = "Product", action = "Index" });
         }
@@ -39,6 +44,10 @@ namespace StockApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(SaveProductViewModel vm)
         {
+            if (ModelState.IsValid)
+            {
+                return View("SaveProduct", vm);
+            }
             await _productService.Update(vm);
             return RedirectToRoute(new { controller = "Product", action = "Index" });
         }
