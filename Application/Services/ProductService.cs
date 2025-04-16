@@ -43,6 +43,12 @@ namespace Application.Services
 
         }
 
+        public async Task Delete(int id)
+        {
+            var product = await _productRepository.GetByIdAsync(id);
+            await _productRepository.DeleteAsync(product);
+        }
+
         public async Task<SaveProductViewModel> GetByIdSaveViewModel(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);

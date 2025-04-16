@@ -24,15 +24,10 @@ namespace StockApp.Controllers
             return View("SaveProduct", new SaveProductViewModel());
         }
 
-        public async Task<IActionResult> Edit(int id)
-        {
-            return View("SaveProduct", await _productService.GetByIdSaveViewModel(id));
-        }
-
         [HttpPost]
         public async Task<IActionResult> Create(SaveProductViewModel vm)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View("SaveProduct", vm);
             }
@@ -41,16 +36,36 @@ namespace StockApp.Controllers
             return RedirectToRoute(new { controller = "Product", action = "Index" });
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            return View("SaveProduct", await _productService.GetByIdSaveViewModel(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Edit(SaveProductViewModel vm)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View("SaveProduct", vm);
             }
             await _productService.Update(vm);
             return RedirectToRoute(new { controller = "Product", action = "Index" });
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            return View(await _productService.GetByIdSaveViewModel(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePost(int id)
+        {
+
+            await _productService.Delete(id);
+            return RedirectToRoute(new { controller = "Product", action = "Index" });
+        }
+
+
 
 
     }
