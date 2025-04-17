@@ -2,6 +2,10 @@ html {
   font-size: 14px;
 }
 
+.img-product-size{
+    height: 350px;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
