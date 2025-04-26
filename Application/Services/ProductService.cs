@@ -1,17 +1,18 @@
-﻿using Application.Repository;
-using Application.ViewModels;
-using Database;
-using Database.Models;
+﻿using StockApp.Core.Application.Interfaces.Repositories;
+using StockApp.Core.Application.Interfaces.Services;
+using StockApp.Core.Application.ViewModels.Product;
+using StockApp.Core.Domain.Entities;
 
 namespace Application.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
-        private readonly ProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;
 
-        public ProductService(ApplicationContext dbContext)
+        public ProductService(IProductRepository productRepository)
         {
-            _productRepository = new(dbContext);
+            _productRepository = _productRepository;
+
         }
 
         public async Task Update(SaveProductViewModel vm)

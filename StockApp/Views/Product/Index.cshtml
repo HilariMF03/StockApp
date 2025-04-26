@@ -1,4 +1,5 @@
-﻿@model List<Application.ViewModels.ProductViewModel>
+﻿@using StockApp.Core.Application.ViewModels.Product
+@model List<ProductViewModel>
 @{
     ViewData["Title"] = "Productos";
 }
@@ -22,7 +23,7 @@
         else
         {
 
-            @foreach (Application.ViewModels.ProductViewModel item in Model)
+            @foreach (ProductViewModel item in Model)
             {
                 <div class="col-4">
                     <div class="card-shadow-sm">

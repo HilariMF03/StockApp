@@ -1,17 +1,16 @@
-﻿using Application.Services;
-using Application.ViewModels;
-using Database;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using StockApp.Core.Application.Interfaces.Services;
+using StockApp.Core.Application.ViewModels.Product;
 
 namespace StockApp.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductService _productService;
+        private readonly IProductService _productService;
 
-        public ProductController(ApplicationContext dbContext)
+        public ProductController(IProductService productService)
         {
-            _productService = new ProductService(dbContext);
+            _productService = productService;
         }
 
         public async Task<IActionResult> Index()

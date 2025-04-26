@@ -1,16 +1,15 @@
-using Application.Services;
-using Database;
 using Microsoft.AspNetCore.Mvc;
+using StockApp.Core.Application.Interfaces.Services;
 
 namespace StockApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ProductService _productService;
+        private readonly IProductService _productService;
 
-        public HomeController(ApplicationContext dbContext)
+        public HomeController(IProductService productService)
         {
-            _productService = new ProductService(dbContext);
+            _productService = productService;
         }
 
         public async Task<IActionResult> Index()

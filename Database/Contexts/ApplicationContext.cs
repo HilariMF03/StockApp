@@ -1,7 +1,7 @@
-﻿using Database.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using StockApp.Core.Domain.Entities;
 
-namespace Database
+namespace StockApp.Infrastructure.Persistence.Contexts
 {
     public class ApplicationContext : DbContext
     {

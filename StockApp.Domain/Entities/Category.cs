@@ -1,4 +1,4 @@
-﻿namespace Database.Models
+﻿namespace StockApp.Core.Domain.Entities
 {
     public class Category
     {

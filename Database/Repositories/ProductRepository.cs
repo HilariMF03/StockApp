@@ -1,10 +1,12 @@
-﻿using Database;
-using Database.Models;
+﻿
 using Microsoft.EntityFrameworkCore;
+using StockApp.Core.Application.Interfaces.Repositories;
+using StockApp.Core.Domain.Entities;
+using StockApp.Infrastructure.Persistence.Contexts;
 
 namespace Application.Repository
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly ApplicationContext _dbContext;
 

@@ -1,4 +1,4 @@
-namespace StockApp.Models
+﻿namespace WebApp.StockApp.Models
 {
     public class ErrorViewModel
     {

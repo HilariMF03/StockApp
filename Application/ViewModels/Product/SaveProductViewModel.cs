@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Application.ViewModels
+namespace StockApp.Core.Application.ViewModels.Product
 {
     public class SaveProductViewModel
     {

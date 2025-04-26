@@ -1,4 +1,5 @@
-﻿@model Application.ViewModels.SaveProductViewModel
+﻿@using StockApp.Core.Application.ViewModels.Product
+@model SaveProductViewModel
 @{
     bool editMode = Model.Id == 0 ? false : true;
     ViewData["Title"] = "Guardar producto";

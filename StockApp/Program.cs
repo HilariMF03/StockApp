@@ -1,7 +1,6 @@
-using Database;
-using Microsoft.EntityFrameworkCore;
-
+using StockApp.Infrastructure.Persistence;
 namespace StockApp
+
 {
     public class Program
     {
@@ -10,13 +9,17 @@ namespace StockApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Configuración del contexto con cadena de conexión
-            builder.Services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             // Agrega servicios al contenedor
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            //Aquí registras 
+            builder.Services.AddPersistenceInfrastructure(builder.Configuration);
+            builder.Services.AddApplicationLayer(builder.Configuration);
+
 
             // Configura el pipeline HTTP
             if (!app.Environment.IsDevelopment())
