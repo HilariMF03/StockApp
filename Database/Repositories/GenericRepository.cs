@@ -1,10 +1,11 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using StockApp.Core.Application.Interfaces.Repositories;
 using StockApp.Infrastructure.Persistence.Contexts;
 
 namespace Application.Repository
 {
-    public class GenericRepository<Entity> where Entity : class
+    public class GenericRepository<Entity> : IGenericRepositoryAsync<Entity> where Entity : class
     {
         private readonly ApplicationContext _dbContext;
 
