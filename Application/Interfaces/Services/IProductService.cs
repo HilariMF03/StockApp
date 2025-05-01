@@ -2,12 +2,7 @@
 
 namespace StockApp.Core.Application.Interfaces.Services
 {
-    public interface IProductService
+    public interface IProductService : IGenericService<SaveProductViewModel, ProductViewModel>
     {
-        Task Update(SaveProductViewModel vm);
-        Task Add(SaveProductViewModel vm);
-        Task Delete(int id);
-        Task<SaveProductViewModel> GetByIdSaveViewModel(int id);
-        Task<List<ProductViewModel>> GetAllViewModel();
     }
 }
