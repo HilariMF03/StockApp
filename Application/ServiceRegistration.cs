@@ -3,19 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StockApp.Core.Application.Interfaces.Services;
 
-
-namespace StockApp.Infrastructure.Persistence
+public static class ApplicationServiceRegistration
 {
-    public static class ServiceRegistration
+    public static void AddApplicationLayer(this IServiceCollection services, IConfiguration configuration)
     {
-
-        //Extension Method - Decorator
-        public static void AddApplicationLayer(this IServiceCollection services, IConfiguration configuration)
-        {
-
-            #region Services
-            services.AddTransient<IProductService, ProductService>();
-            #endregion
-        }
+        services.AddTransient<IProductService, ProductService>();
     }
 }

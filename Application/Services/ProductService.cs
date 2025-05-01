@@ -11,7 +11,7 @@ namespace Application.Services
 
         public ProductService(IProductRepository productRepository)
         {
-            _productRepository = _productRepository;
+            _productRepository = productRepository;
 
         }
 
